@@ -1,0 +1,235 @@
+@charset "UTF-8";
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.myp{
+    display: flex;
+    width: 100%;
+    min-height: 90vh;
+    flex-direction: row;
+
+}
+
+.mypage_nav{
+    width: 16%;
+    background-color: #DFD6CD;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.myp_logo{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 35px;
+    margin-top: 40%;
+    margin-bottom: 20%;
+    width: 80%;
+    font-weight:570;
+    padding-left: 8%;
+}
+
+.my_nav_btn{
+    margin: 10% 0;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+}
+.my_nav_text{
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoM";
+    color: #4C4747;
+    position: relative;
+    padding-bottom: 7%;
+     
+}
+.my_nav_text:before{
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 0; right: 0;
+    height: 3px;
+    background-color: #796453;
+
+}
+.my_nav_text:before{
+    opacity: 0;
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+      transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+.my_nav_text:hover:before{
+    opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.mypage_item{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin-left: 8%;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.mypage3{
+    font-family: "AppleSDGothicNeoM";
+    padding: 1% 5%;
+
+}
+
+.my3_1_profile{
+    display: inline-flex;
+    height: 120px;
+    line-height: 120px;
+    margin: 2% 0;
+}
+
+.my3_1_profile_name{
+    font-size: 30px;
+    padding-right: 15%;
+}
+
+#my3_1_profile_img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50px;
+}
+
+.my3_1_pr{
+    font-size: 17px;
+    color: #4C4747;
+}
+
+.mypage3_2{
+    padding: 3% 0;
+}
+
+.my3_2_nav{
+    display: inline-flex;
+    width: 100%;
+    border-bottom: 2px solid #796453;
+    margin: 1% 0;
+}
+
+#navbtn{
+    text-align: left;
+    background-color: #FFFFFF;
+    border: none;
+    margin-right: 10%;
+    width: 100%;
+    font-size: 25px;
+    color: #796453;
+    padding: 1% 1%;
+}
+
+#btn2_detail{
+    display: flex;
+}
+
+.my3_2_block{
+    display: flex;
+    width: 40%;
+    padding:0 5%;
+}
+
+.my3_block_img{
+    width: 50%;
+}
+
+#my3_block_img{
+    border-radius: 10px;
+    height: 100%;
+    width: auto;
+}
+
+.my3_block_content{margin-top: 5%;}
+
+#block_category, #block_name{
+    font-size: 25px;
+    color: #4C4747;
+    padding-bottom: 30%;
+}
+
+#block_day{
+    color: #959595;
+}
+
+
+
+
+.my3_3_top{
+    display: flex;
+    border-bottom: 2px solid #796453;
+    height: 20%;
+
+}
+
+.my3_3_content{
+    display: flex;
+}
+
+.my3_3_ans{
+    width: 40%;
+    padding: 1% 1%;
+    font-size: 25px;
+}
+
+.my3_3_ansbtn{
+    width: 30%;
+    font-size: 25px;
+    padding: 1% 1%;
+    margin-bottom: 1%;
+}
+
+#my3_3_ansbtn{
+    padding: 3% 10%;
+    border-radius: 50px;
+    background-color: #DFD6CD;
+}
+
+.Q_name{
+    margin: 1% 1%;
+    width: 20%;
+    font-size: 20px;
+    text-align: center;
+    border-right: 1px solid #908A8A;
+    padding-top: 2.5%;
+}
+
+.Q_detail{
+    margin: 1% 1%;
+}
+
+#Q_detail{
+    padding: 5% 0;
+    font-size: 17px;
+}

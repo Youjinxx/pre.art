@@ -1,0 +1,87 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.bwrite_1{
+    text-align: center;
+    width: 100%;
+    padding: 3% 0;
+    font-family: "AppleSDGothicNeoB";
+    font-size: 35px;
+}
+
+.bwrite_2{
+    font-family: "AppleSDGothicNeoM";
+    width: 80%;
+    margin: 0.5% 10%;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    border: 3px solid #796453;
+    border-radius: 20px;
+}
+
+.bwrite_2_1{
+    margin: 5% 10%;
+    justify-items: center;
+}
+
+#bwrite2_form{
+    display: flex;
+    width: 100%;
+    margin: 2%;
+    padding-bottom: 3%;
+    justify-items: center;
+}
+
+#bwrite2_form_title{
+    width: 10%;
+}
+
+#bwrite2_form_input{
+    width: 90%;
+}
+
+#bwrite2_form_input_1{
+    width: 90%;
+    height: 30px;
+    margin-top: -1%;
+}
+
+#bwrite2_form_input_2{
+    width: 90%;
+    margin-top: -1%;
+    height: 210px;
+    resize: none;
+}
+
+.bwrite_btn{
+    text-align: right;
+    margin: 2% 5%;
+}
+
+#bwrite_btn{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 17px;
+    padding: 1% 3%;
+    border-radius: 20px;
+    border: none;
+    background-color: #DFD6CD;
+}

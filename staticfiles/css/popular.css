@@ -1,0 +1,79 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.popular_1{
+    text-align: center;
+    margin: 3% 0;
+    font-size: 33px;
+    font-family: "AppleSDGothicNeoEB";
+
+}
+
+.popular_2{
+    text-align: center;
+    margin: 1% 0;
+    margin-bottom: 5%;
+}
+
+.popular_2 p{
+    padding-top: 1.5%;
+    font-size: 25px;
+    font-family: "AppleSDGothicNeoM";
+    color: #796453;
+}
+
+#popular_2_preart{
+    font-size: 20px;
+    color: #DFD6CD;
+}
+
+.popular_3{
+    align-items: center;
+    text-align: center;
+    font-size: 17px;
+    color: #959595;
+}
+
+.popular_3_random3{
+    display: inline-flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.popular_3_block{
+    width: 30%;
+    margin: 2% 2.5%;
+}
+
+.popular_3_block_box{
+    border-radius: 20px;
+}
+
+.popular_3_block_box img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+.popular_3_block_box_content{
+    font-size: 140%;
+}

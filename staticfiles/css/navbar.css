@@ -1,0 +1,261 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(/font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(/font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(/font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(/font/AppleSDGothicNeoEB.ttf);
+}
+
+a{
+    text-decoration: none;
+    color: #4C4646;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid #796453;
+    top:0;
+    right: 0;
+    left: 0;
+    margin: 0px;
+    padding: 0px;
+    overflow: visible;
+    justify-content: space-around;
+}
+/* 
+.nav_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.navbar_logo_img{
+    width: 50%;
+} */
+
+.nav_list{
+    display: flex;
+    align-items: center;
+    width: 35%;
+    justify-content: space-between;
+}
+
+
+.nav_button{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 17px;
+    color: #4C4646;
+}
+
+.nav_my{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 28%;
+}
+
+.nav_register{
+    margin:0 2%;
+    display: flex;
+    border-bottom: 1px solid #796453;
+    width: 33%;
+}
+
+.nav_reigst{
+    font-family: "AppleSDGothicNeoM";
+    display: flex;
+    font-size: 14px;
+    color: #4C4646;
+}
+
+.nav_search_bar{
+    width: 70%;
+    font-family: "AppleSDGothicNeoM";
+    font-size: 15px;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    height: 50px;
+}
+
+.search_btn{
+    font-size: 20px;
+    color: #4C4646;
+    border: none;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+
+}
+
+/* .show{
+    display: block;
+} */
+
+
+.nav_dropdown-content {
+    background-color: #DFD6CD;
+    color: #4C4646;
+    padding: 0 3.5px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+}
+
+
+.nav_dropdown {
+    display: inline-block;
+}
+
+.nav_dropdown-content {
+    display: none;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.nav_dropdown-content a {
+    color: #4C4646;
+    padding: 0;
+    text-decoration: none;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav_dropdown-content a:hover {background-color: #f1f1f1}
+
+.nav_dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav_dropdown:hover .dropbtn {
+    background-color: #DFD6CD;
+    color: #4C4646;
+}
+
+
+.nav_button:hover {
+    transform: scale(1.3);
+    transition-duration: 0.3s;
+    color: #796453;
+}
+
+/* mypage nav/ */
+
+h1{        
+    font-family: "AppleSDGothicNeoLB";
+}
+
+.maypage_nav{
+    position: absolute;
+    width: 15%;
+    background-color: #DFD6CD;
+    font-size: 17px;
+    align-items: center;
+    box-sizing: initial;
+    justify-content: space-around;
+    height: 100%;
+    line-height: 50px;
+}
+
+.mypage_1{
+    align-items: left;
+    width: 85%;
+    height: 100%;
+    position:relative;
+}
+
+#my_nav_btn{
+    font-size: 22px;
+    padding: 5% 25%;
+    width: 70%;
+    font-family: "AppleSDGothicNeoM";
+    color: #4C4747;
+}
+
+#profile_block{
+    height: 15%;
+    padding-top: 3%;
+    line-height: 50px;
+    margin-left: 5%;
+}
+
+.profile_title{
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoEB";
+}
+
+.profile_detatil{
+    font-size: 17px;
+    color: #939393;
+    border-bottom: 1px solid #959595;
+    width: 100%;
+}
+
+.re_profile{
+    position:absolute; 
+    bottom:0px;
+    right: 15px;
+    width: 15%;
+}
+
+#re_profile{
+    padding: 5% 20%;
+    font-size: 22px;
+    border: none;
+    border-radius: 50px;
+    background-color: #DFD6CD;
+    font-family: "AppleSDGothicNeoM";
+}
+
+@-webkit-keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
