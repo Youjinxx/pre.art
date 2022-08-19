@@ -63,21 +63,21 @@
             <div style="overflow: hidden; max-height: 100%; width: 100%;">
 
                 
-                <div class="title" style="padding-left: 15%; width: 100%;">{{post.post_name}}</div>
+                <div class="title" style="padding-left: 15%; width: 100%; font-weight: bold;">{{post.post_name}}</div>
                 
                 
-                <div style="display: inline-flex; width: 100%;">
+                <div style="display:flex; width: 100%;">
                     {% if post.main_image %}
-                        <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 100%; height: 500px;"/></div>
+                    <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 800px; height: 600px;"/></div>
                     {% endif %}
-                    <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;">
+                    <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;flex-direction: row;">
                         {% if user in post.like_user_set.all %}
                             <div class="alt-service-icon">
-                                <i class="fas fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                                <i class="fas fa-heart" id="like-icon" style="color:#B40404;"></i>
                             </div>
                         {% else %}
                             <div class="alt-service-icon">
-                                <i class="far fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                                <i class="far fa-heart" id="like-icon" style="color:#B40404;"></i>
                             </div>
                         {% endif %}
                     </span>
@@ -186,7 +186,7 @@
     <div class="funding_1_5">
         {% for i in post.image.all %}
         <div class="funding_1_5_imgbox">
-            <img src="{{ i.image.url }}" alt="" style="width:800px; height: 600px;">
+            <img src="{{ i.image.url }}" alt="" style="width: 200px; height: 150px;">
         </div>
         {% endfor %}
     </div><hr class="hr_1">
@@ -231,14 +231,15 @@
 
         </div>
 
-        
-        <a href="{% url 'cart:add_cart' post.id %}" class="spon_btn">
-            <div class="spon_btnb">후원하기</div>
-        </a>    
+        <div class="spon_bb">
+            <a href="{% url 'cart:add_cart' post.id %}" class="spon_btn_1">
+                <div class="spon_btnb">후원하기</div>
+            </a>    
 
-        <a href="{% url 'board:board_list' %}" class="spon_btn">
-            <div class="spon_btnb">창작자에게 문의</div>
-        </a>  
+            <a href="{% url 'board:board_list' %}" class="spon_btn_2">
+                <div class="spon_btnb">창작자에게 문의</div>
+            </a>  
+        </div>
         
     </div><hr class="hr_1"><br/>
 
