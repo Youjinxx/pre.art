@@ -133,11 +133,11 @@
             <script>
                 var money = {{product.price}}; // 모인 금액
                 
-                function number(money){
+                function number(돈){
                     return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
 
-                document.getElementById("current_money").innerHTML = number(money);
+                document.getElementById("current_money").innerHTML = number(돈);
             </script>
             <div class="time" style="padding-top: 80px;">
                 <div id="content_detail">남은기간</div><br>
@@ -200,11 +200,11 @@
                 <script>
                     var money = {{post.post_price}}; // 후워 금액
                     
-                    function number(money){
+                    function number(돈){
                         return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     }
 
-                    document.getElementById("money").innerHTML = number(money);
+                    document.getElementById("money").innerHTML = number(돈);
                 </script>
             </div>
 
@@ -222,11 +222,11 @@
             <script>
                 var money = {{product.price}}; // 모인 금액
                 
-                function number(money){
+                function number(돈){
                     return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
 
-                document.getElementById("current_money").innerHTML = number(money);
+                document.getElementById("current_money").innerHTML = number(돈);
             </script>
 
         </div>

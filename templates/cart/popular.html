@@ -1,323 +1,112 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 
-    <style>
-        #btn2, #funding_btn1{
-            border-bottom: solid 8px #796453;
-            display: inline-block;
-            width: 120px;
-            height: 80px;
-            line-height: 80px;
-            
-        }
-        .fund_btn{
-            width: 120px;
-            height: 80px;
-            line-height: 80px;
-        }
-        .nav{
-            z-index: 100;
-        }
-        .top{
-            width: 100%;
-            text-align: center;
-            height: 5px;
-            line-height: 5px;
-            padding-top: 3%;
-        }
-.outer {
-    border: none;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    overflow-x: hidden;
+<style>
+.name{
+ font-size: 17px;
+ color: #959595;
+ font-family: "AppleSDGothicNeoM";
 
 }
-  
-.inner-list {
-    display: inline-flex;
-    transition: .5s ease-out;
-    height: 100%;
-    width: 100%;
-}
-  
-.inner {
-    max-width: 100%;
-    height: 90%;
-    border-radius: 20px;
-}
+</style>
+
+<div class="popular_1">TRENDING NOW : TOP 3</div>
+
+<div class="popular_2">
+    
+    <p>가장 많은 PIN을 받은 3개의 전시입니다.</p>
+    <p>전시 상세페이지로 이동해 후원에 참여해보세요.</p>
+    <p id="popular_2_preart">ART with PRE.ART</p>
+</div>
+
+<div class="popular_3">
 
 
-    </style>
+    <div class="popular_3_random3">
+            {% for post in posts %}
 
-    <link rel="stylesheet" href="{% static 'css/funding.css' %}">
-
-    <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | {{post.post_name}}</p>
-
-    <div class="funding_1">
-
-        <div class="funding_title" style="overflow: hidden; display: inline-flex; flex-direction: column;">
-
-            <div style="overflow: hidden; max-height: 100%; width: 100%;">
-
-                
-                <div class="title" style="padding-left: 15%; width: 100%; font-weight: bold;">{{post.post_name}}</div>
-                
-                
-                <div style="display:flex; width: 100%;">
+            <a class="popular_3_block" href="{% url 'shop:product' post.id %}">
+                <div class="popular_3_block_box">
                     {% if post.main_image %}
-                    <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 800px; height: 600px;"/></div>
+                    <img src="{{post.main_image.url}}">
                     {% endif %}
-                    <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;flex-direction: row;">
-                        {% if user in post.like_user_set.all %}
-                            <div class="alt-service-icon">
-                                <i class="fas fa-heart" id="like-icon" style="color:#B40404;"></i>
-                            </div>
-                        {% else %}
-                            <div class="alt-service-icon">
-                                <i class="far fa-heart" id="like-icon" style="color:#B40404;"></i>
-                            </div>
-                        {% endif %}
-                    </span>
+                    
+                    <div class="name">{{post.artist_name}}</div>
+                    <div class="name">{{post.post_name}}</div>
+                </div>
+            </a>
+<!-- 
+                <div class="ad_item_item">
+                    <div class="ad_agree_list">
+                        <div class="ad_agree_sub">작가 본명</div>
+                        <div class="ad_agree_text" >{{post.realname}}</div>
+                    </div>
+
+                    <div class="ad_agree_list">
+                        <div class="ad_agree_sub">작가 활동명</div>
+                        <div class="ad_agree_text" >{{post.artist_name}}</div>
+                    </div>
+        
+                    <div class="ad_agree_list">
+                        <div class="ad_agree_sub">소속</div>
+                        <div class="ad_agree_text" >{{post.team}}</div>
+                    </div>
+    
+                    <div class="ad_agree_list">
+                        <div class="ad_agree_sub">이메일</div>
+                        <div class="ad_agree_text" >{{post.email}}</div>
+                    </div>
+
+
+        
+                    <div class="ad_agree_list">
+                        <a class="ad_detail_btn" href="{% url 'shop:product' post.id %}">More ➔</a>
+                    </div>
+
+                </div> -->
+
+            {% endfor %}
+    </div>
+
+<!-- <div class="articovery_3">
+    <div class="articovery_3_writer">김도훈 | 김만섭 | 김소연</div>
+>>>>>>> 05867934b2f64a33a6b477eea86fdf415acf6ac9
+
+    <div class="popular_3_random3">
+        <a class="popular_3_block" href="#">
+            <div class="popular_3_block_box">
+                <img src="{% static 'img/main1.png' %}">
+
                 
-                    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-                    <script>
-                        $(".like").click(function(){
-                            var pk=$(this).attr('name')
-                            $.ajax({
-                                type:'POST',
-                                url:"{% url 'cart:like_toggle' post.pk %}",
-                                data:{'pk':pk,'csrfmiddlewaretoken':'{{csrf_token}}'},
-                                dataType:'json',
-                                success:function(response){
-                                    if(response.like_count==null){
-                                        alert('로그인이 필요합니다.');
-                                    }
-                                    else{
-                                        if(response.result=='like'){
-                                        $('#like-icon').removeClass();
-                                            $('#like-icon').addClass('fas fa-heart');
-                                        }
-                                        else{
-                                            $('#like-icon').removeClass();
-                                            $('#like-icon').addClass('far fa-heart');
-                                        }
-                                        $('#count-{{post.id}}').html('좋아요'+response.like_count+"개");
-                                    }
-                                },
-                                error:function(request, status, error){
-                                    alert("로그인이 필요합니다.")
-                                },
-                            })
-                        })
-                    </script>
+                <div class="popular_3_block_box_content">
+                    김도훈 - Show up 29-1 
                 </div>
             </div>
-            <div class="funding_percent" style="display: inline-flex; width: 100%;">
-                <div class="block_tag_2">#{{post.tag.all | join:" #"}}</div>
-                <!-- <span style="width: 10%;">펀딩 달성률</span>
-                <progress class="progressTag" value="95" max="100" style="width:70%;"></progress>
-                <span style="width: 10%;">95%</span> -->
-            </div>
+        </a>
 
-        </div>
-        <script src="{% static 'js/banner.js' %}"></script>
 
-        <div class="funding_content" style="padding-left: 0;">
-            <div class="money_1">
-                <div id="content_detail" style="padding-top: 140px;">모인금액</div><br>
-                <span id="current_money"></span> 원
-            </div>
-            <script>
-                var money = {{product.price}}; // 모인 금액
+        <a class="popular_3_block" href="#">
+            <div class="popular_3_block_box">
+                <img src="{% static 'img/main1.png' %}">
                 
-                function number(돈){
-                    return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                }
-
-                document.getElementById("current_money").innerHTML = number(돈);
-            </script>
-            <div class="time" style="padding-top: 80px;">
-                <div id="content_detail">남은기간</div><br>
-                <div><span id="detail_day"></span>일</div>
+                <div class="popular_3_block_box_content">
+                    김도훈 - Show up 29-1 
+                </div>
             </div>
-            <script>
-                const finalDay1 = "{{post.endday|date:'Y-m-d'}}"
-          
-                function CalcDday(finalDay) {
-                    var today = new Date();
-                    finalDay = new Date(finalDay);
-                    var year = today.getFullYear();
-                    var month = ('0'+(today.getMonth() +1)).slice(-2);
-                    var day = ('0'+today.getDate()).slice(-2);
-          
-                    var dateString = year + '-' + month + '-' + day;
-                    dateString = new Date(dateString);
-          
-                    var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
-                          
-                    if (dday === 0){
-                        return "D-day"
-                    }
-                    else{
-                        return dday;
-                    }
-                }
-          
-                document.getElementById("detail_day").innerHTML = CalcDday(finalDay1); 
-          
-            </script>            
-            <script src="{% static 'js/dday.js' %}"></script>
+        </a>
 
 
-            <div class="sponsor" style="padding-top: 80px;">
-                <div id="content_detail">후원자</div><br>
-                명
-            </div>
-        </div>
-
-        <div class="pr" style="width: 100%;">"{{post.post_intro}}"</div>
-        <div class="pr" style="width: 100%; margin-top: 2%;">{{post.post_plan}}</div>
-
-    </div>
-
-    <div class="funding_1_5">
-        {% for i in post.image.all %}
-        <div class="funding_1_5_imgbox">
-            <img src="{{ i.image.url }}" alt="" style="width: 200px; height: 150px;">
-        </div>
-        {% endfor %}
-    </div><hr class="hr_1">
-
-
-    <div class="funding_2" style="display: inline-flex; width: 100%;">
-        <div class="funding_detail" style="width: 70%;">
-            <div class="money_2" style="display: inline-flex; width: 100%;">
-                <div id="funding_detail_title" style="width: 30%;">후원금액</div>
-                <div id="funding_detail" style="width: 70%;"><span id="money"></span>원</div><!-- js로 원 단위 표시하기 -->
-                <script>
-                    var money = {{post.post_price}}; // 후워 금액
-                    
-                    function number(돈){
-                        return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    }
-
-                    document.getElementById("money").innerHTML = number(돈);
-                </script>
-            </div>
-
-
-            <div class="time_2" style="display: inline-flex; width: 100%;">
-                <div id="funding_detail_title" style="width: 30%;">펀딩기간</div>
-                <div id="funding_detail" style="width: 70%;">{{ post.startday }} ~ {{ post.endday }}</div>
-            </div>
-
-
-            <div class="cash" style="display: inline-flex; width: 100%;">
-                <div id="funding_detail_title" style="width: 30%;">결제</div>
-                <div id="funding_detail" style="width: 70%;">목표금액 달성시 <span id="detail_day1">{{post.endday}}</span>에 결제 진행</div>
-            </div>
-            <script>
-                var money = {{product.price}}; // 모인 금액
+        <a class="popular_3_block" href="#">
+            <div class="popular_3_block_box">
+                <img src="{% static 'img/main1.png' %}">
                 
-                function number(돈){
-                    return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                }
-
-                document.getElementById("current_money").innerHTML = number(돈);
-            </script>
-
-        </div>
-
-        <div class="spon_bb">
-            <a href="{% url 'cart:add_cart' post.id %}" class="spon_btn_1">
-                <div class="spon_btnb">후원하기</div>
-            </a>    
-
-            <a href="{% url 'board:board_list' %}" class="spon_btn_2">
-                <div class="spon_btnb">창작자에게 문의</div>
-            </a>  
-        </div>
-        
-    </div><hr class="hr_1"><br/>
-
-    <div class="funding_3">
-
-        <div class="author">
-
-            <div class="profile_1">{{post.artist_name}}</div>
-
-            <div class="profile_2">
-                <div class="last_login">{{post.team}}</div>
-                <div class="last_login">{{post.artist_intro}}</div>
+                <div class="popular_3_block_box_content">
+                    김도훈 - Show up 29-1 
+                </div>
             </div>
+        </a> -->
 
-        </div>
-
-        <div class="fund_map">
-
-        <div class="fm_title">작가님의 전시 장소를 확인해보세요.</div>
-        <div class="fm_title" style="color: #796453;"><i class="fa-solid fa-location-dot" style="color: #796453; margin-right: 4px"></i>{{ post.post_place }}</div>
-        </div>
-
-        <div class="mapbox">
-            <input type="text" id="sample5_address_2" placeholder="주소">
-            <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
-            <div id="map" style="width:480px;height:300px;margin-top:10px;margin-left: 10%; display:none"></div>
-
-            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-            <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48a405a3e0bcc8c015bc54b0d3df03ae&libraries=services"></script>
-            <script>
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                    mapOption = {
-                        center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-                        level: 5 // 지도의 확대 레벨
-                    };
-
-                //지도를 미리 생성
-                var map = new daum.maps.Map(mapContainer, mapOption);
-                //주소-좌표 변환 객체를 생성
-                var geocoder = new daum.maps.services.Geocoder();
-                //마커를 미리 생성
-                var marker = new daum.maps.Marker({
-                    position: new daum.maps.LatLng(37.537187, 127.005476),
-                    map: map
-                });
-
-
-                function sample5_execDaumPostcode() {
-                    new daum.Postcode({
-                        oncomplete: function(data) {
-                            var addr = data.address; // 최종 주소 변수
-
-                            // 주소 정보를 해당 필드에 넣는다.
-                            document.getElementById("sample5_address").value = addr;
-                            // 주소로 상세 정보를 검색
-                            geocoder.addressSearch(data.address, function(results, status) {
-                                // 정상적으로 검색이 완료됐으면
-                                if (status === daum.maps.services.Status.OK) {
-
-                                    var result = results[0]; //첫번째 결과의 값을 활용
-
-                                    // 해당 주소에 대한 좌표를 받아서
-                                    var coords = new daum.maps.LatLng(result.y, result.x);
-                                    // 지도를 보여준다.
-                                    mapContainer.style.display = "block";
-                                    map.relayout();
-                                    // 지도 중심을 변경한다.
-                                    map.setCenter(coords);
-                                    // 마커를 결과값으로 받은 위치로 옮긴다.
-                                    marker.setPosition(coords)
-                                }
-                            });
-                        }
-                    }).open();
-                }
-            </script>
-        </div>
-
-    </div>
+</div>
 
 {% endblock %}
